@@ -1,7 +1,13 @@
 import { useState } from "react"  
 import { Link,useNavigate } from "react-router-dom"
+
+import {getAuth,createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
+import { db } from '../firebase.config'
+import { doc, serverTimestamp, setDoc } from "firebase/firestore"; 
+
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
+import { async } from "@firebase/util"
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -22,13 +28,42 @@ const SignUp = () => {
 
   const navigate = useNavigate()
 
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const auth = getAuth()
+      const userCredential =await createUserWithEmailAndPassword(auth,email,password)
+
+      const user=userCredential.user;
+      updateProfile(auth.currentUser,{
+        displayName:name,
+      })
+
+      const copyFormData={...formData}
+      delete copyFormData.password
+      copyFormData.timestamp=serverTimestamp();
+
+      await setDoc(doc(db,'users',user.uid),copyFormData)
+
+
+
+
+      navigate('/')
+      
+    } catch (error) {
+      console.log(error);
+    } 
+
+  }
+
   return (
     <>
      <div className="pageContainer">
       <header className="mb-6">
         <p className="pageHeader">welcome </p>
       </header>
-      <form>
+      <form onSubmit={onSubmit}>
 
       <input type="text" className="nameInput" placeholder="Name" id="name" value={name} onChange={onChange} />
             <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange} />
