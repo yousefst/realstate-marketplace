@@ -22,11 +22,11 @@ const Navbar = () => {
                     <p className={pathMatch('/')?'navbarListItemNameActive':'navbarListItemName'}>Explore</p>
                 </li>
                 <li className="navbarListItem">
-                    <OfferIcon fill={pathMatch('/offers') ?'#2c2c2c':'#8f8f8f'} width="36px" height="36px" />
-                    <p className={pathMatch('/offers')?'navbarListItemNameActive':'navbarListItemName'} onClick={()=>navigate("/offers")}>Offers</p>
+                    <OfferIcon fill={pathMatch('/offers') ?'#2c2c2c':'#8f8f8f'} onClick={()=>navigate("/offers")} width="36px" height="36px" />
+                    <p className={pathMatch('/offers')?'navbarListItemNameActive':'navbarListItemName'}>Offers</p>
                 </li> 
                 <li className="navbarListItem">
-                    <PersonOutlineIcon fill={pathMatch('/profile') ?'#2c2c2c':'#8f8f8f'} onClick={()=>navigate("/profile")} width="36px" height="36px" />
+                    <PersonOutlineIcon fill={pathMatch('/profile') ?'#2c2c2c':'#8f8f8f'} onClick={()=>navigate("/sign-in")} width="36px" height="36px" />
                     <p className={pathMatch('/profile')?'navbarListItemNameActive':'navbarListItemName'}>Profile</p>
                 </li>
             </ul>
