@@ -45,13 +45,10 @@ const SignUp = () => {
       copyFormData.timestamp=serverTimestamp();
 
       await setDoc(doc(db,'users',user.uid),copyFormData)
-
-
-
-
       navigate('/')
       
     } catch (error) {
+      toast.error('usercredential not correct');
       console.log(error);
     } 
 
