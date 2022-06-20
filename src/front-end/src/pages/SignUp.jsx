@@ -4,6 +4,7 @@ import { Link,useNavigate } from "react-router-dom"
 import {getAuth,createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
 import { db } from '../firebase.config'
 import { doc, serverTimestamp, setDoc } from "firebase/firestore"; 
+import { toast } from "react-toastify"
 
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
@@ -49,7 +50,6 @@ const SignUp = () => {
       
     } catch (error) {
       toast.error('usercredential not correct');
-      console.log(error);
     } 
 
   }
