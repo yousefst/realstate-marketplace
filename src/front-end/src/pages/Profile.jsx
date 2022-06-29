@@ -7,6 +7,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { async } from "@firebase/util";
 
+import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
+import homeIcon from "../assets/svg/homeIcon.svg";
+
 const auth = getAuth();
 
 const Profile = () => {
@@ -87,6 +90,12 @@ const Profile = () => {
               />
             </form>
           </div>
+
+          <Link to='/create-listing' className='createListing'>
+            <img src={homeIcon} alt='home icon' />
+            <p>Sell Or Rent Your Home</p>
+            <img src={arrowRight} alt='arrow right' />
+          </Link>
         </main>
       </div>
     </>
