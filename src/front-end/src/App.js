@@ -14,6 +14,7 @@ import Listing from "./pages/Listing";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             path='/category/:categoryName/:listingId'
             element={<Listing />}
           />
+          <Route path='/contact/:landlordId' element={<Contact />} />
         </Routes>
         <Navbar />
       </Router>

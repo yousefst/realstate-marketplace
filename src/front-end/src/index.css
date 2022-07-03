@@ -359,7 +359,15 @@ button {
     font-size: 1.75rem;
   }
 }
-
+.newSwiper {
+  max-height: 45vh;
+  overflow: hidden;
+  object-fit: cover;
+}
+.newSwiperImage {
+  width: 100%;
+  object-fit: contain;
+}
 .swiperSlidePrice {
   color: #000000;
   position: absolute;
