@@ -14,7 +14,6 @@ import ListingItem from "../components/ListingItem";
 import Spinner from "../components/Spinner";
 import { async } from "@firebase/util";
 import { toast } from "react-toastify";
-
 const Category = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,7 +37,6 @@ const Category = () => {
         // Execute query
         const querySnap = await getDocs(q);
         const lastVisible = querySnap.docs[querySnap.docs.length - 1];
-        console.log(lastVisible);
         const listings = [];
 
         querySnap.forEach((doc) => {
@@ -74,7 +72,6 @@ const Category = () => {
       // Execute query
       const querySnap = await getDocs(q);
       const lastVisible = querySnap.docs(querySnap.docs.length - 1);
-      console.log(lastVisible);
       const listings = [];
 
       querySnap.forEach((doc) => {

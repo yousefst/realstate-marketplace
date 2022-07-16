@@ -72,7 +72,6 @@ const Offers = () => {
       // Execute query
       const querySnap = await getDocs(q);
       const lastVisible = querySnap.docs(querySnap.docs.length - 1);
-      console.log(lastVisible);
       const listings = [];
 
       querySnap.forEach((doc) => {

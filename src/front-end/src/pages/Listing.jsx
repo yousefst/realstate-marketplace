@@ -28,7 +28,6 @@ const Listing = () => {
       const docRef = doc(db, "listings", params.listingId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log(docSnap.data());
         setListing(docSnap.data());
         setLoading(false);
       }
@@ -120,12 +119,6 @@ const Listing = () => {
             <Marker
               position={[listing.geolocation.lat, listing.geolocation.lng]}
             >
-              {console.log(
-                "location :::",
-                listing.geolocation.lat,
-                listing.geolocation.lng,
-                listing.location
-              )}
               <Popup>{listing.location}</Popup>
             </Marker>
           </MapContainer>
@@ -138,7 +131,6 @@ const Listing = () => {
             Contact Landlord
           </Link>
         )}
-        {console.log(auth.currentUser.uid, listing.user, "listing", listing)}
       </div>
     </main>
   );

@@ -20,10 +20,8 @@ const Contact = () => {
     const getLandlord = async () => {
       const docRef = doc(db, "users", params.landlordId);
       const docSnap = await getDoc(docRef);
-      console.log(params.landlordId);
       if (docSnap.exists()) {
         setLandlord(docSnap.data());
-        console.log(docSnap.data());
       } else {
         toast.error("Could not get landlord data");
       }
