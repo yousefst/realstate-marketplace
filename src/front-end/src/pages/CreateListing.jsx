@@ -71,8 +71,6 @@ const CreateListing = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    setLoading(true);
-
     if (discountedPrice >= regularPrice) {
       setLoading(false);
       toast.error("Discounted price needs to be less than regular price");
@@ -132,6 +130,7 @@ const CreateListing = () => {
             switch (snapshot.state) {
               case "paused":
                 console.log("Upload is paused");
+                toast.success("Upload is paused");
                 break;
               case "running":
                 console.log("Upload is running");
@@ -339,11 +338,11 @@ const CreateListing = () => {
           />
           {/*  */}
           {!geolocationEnabled && (
-            <div className='formLatLng flex'>
+            <div className='flex justify-start'>
               <div>
-                <label className='formLabel'>Latitude</label>
+                <label className='block formLabel'>Latitude</label>
                 <input
-                  className='formInputSmall'
+                  className='w-[8rem] formInputSmall'
                   type='number'
                   id='latitude'
                   value={latitude}
@@ -352,9 +351,9 @@ const CreateListing = () => {
                 />
               </div>
               <div>
-                <label className='formLabel'>Longitude</label>
+                <label className='block formLabel'>Longitude</label>
                 <input
-                  className='formInputSmall'
+                  className='w-[8rem] formInputSmall'
                   type='number'
                   id='longitude'
                   value={longitude}

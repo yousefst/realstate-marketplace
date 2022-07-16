@@ -320,7 +320,8 @@ button {
 }
 
 .exploreCategoryHeading {
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .swiper-container {
@@ -769,6 +770,9 @@ button {
   border: none;
   outline: none;
   font-family: "Montserrat", sans-serif;
+}
+.formLatLng {
+  width: 80%;
 }
 .formInputSmall,
 .formInputFile {

@@ -47,7 +47,7 @@ const Listing = () => {
               <img
                 src={url}
                 alt='listing'
-                className='w-[100%] h-[100%] object-cover max-h-[40vh] lg:max-h-[60vh]'
+                className='object-cover w-[100%]  h-[33vh]'
               />
             </div>
           </SwiperSlide>

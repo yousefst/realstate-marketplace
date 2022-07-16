@@ -58,11 +58,11 @@ const Slider = () => {
               key={id}
               onClick={() => navigate(`/category/${data.type}/${id}`)}
             >
-              <div>
+              <div className='overflow-hidden'>
                 <img
                   src={data.imgUrls[0]}
                   alt='listing'
-                  className='object-cover w-[100%] h-[100%] max-h-[40vh] lg:max-h-[60vh] rounded-xl'
+                  className='object-cover w-[100%]  h-[33vh]  rounded-xl'
                 />
                 <p className='swiperSlideText'>{data.name}</p>
                 <p className='swiperSlidePrice'>
